@@ -1,0 +1,16 @@
+version: '3'
+services:
+   citizen:
+      image: 'iconloop/citizen-node:1908271151xd2b7a4'
+      restart: always
+      environment:
+         LOG_OUTPUT_TYPE: "file"
+         LOOPCHAIN_LOG_LEVEL: "DEBUG"
+         FASTEST_START: "yes"     # Restore from lastest snapshot DB
+
+      volumes:
+         - ./data:/data  # mount a data volumes
+         - ./keys:/citizen_pack/keys  # Automatically generate cert key files here
+
+      ports:
+         - "127.0.0.2:9100:9000"
