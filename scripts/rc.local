@@ -11,16 +11,15 @@
 #
 # By default this script does nothing.
 
-sleep 10
+sleep 5
 
-CTZDIR="/home/rhizome/citizen"
-PREPDIR="/home/rhizome/prep"
-
-if [ -d "$CTZDIR" ]; then
+#Start citizen node if docker-compose.yml is detected.
+if [ -f /home/rhizome/citizen/docker-compose.yml ]; then
 	cd /home/rhizome/citizen && docker-compose up -d
 fi
 
-if [ -d "$PREPDIR" ]; then
+#Start P-Rep node if docker-compose.yml is detected.
+if [ -f /home/rhizome/prep/docker-compose.yml ]; then
 	cd /home/rhizome/prep && docker-compose up -d
 fi
 
