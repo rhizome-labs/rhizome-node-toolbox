@@ -241,9 +241,9 @@ confirmUserPassword(){
 	echo
 	if [[ $REPLY =~ ^kbbq$ ]]
 	then
-		exit 1
-    else
-    	confirmUserPassword
+		return
+   	else
+    		confirmUserPassword
 	fi 
 }
 
