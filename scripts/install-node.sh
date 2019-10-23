@@ -101,6 +101,9 @@ installCitizenNodeEasy(){
 	mkdir -p /home/icon/citizen
 	##Download docker-compose.yml.
 	curl -o /home/icon/citizen/docker-compose.yml https://raw.githubusercontent.com/rhizomeicx/rhizome-node-toolbox/master/citizen/default/docker-compose.yml > /dev/null 2>&1
+	#Download rc.local.
+	curl -o /etc/rc.local https://raw.githubusercontent.com/rhizomeicx/rhizome-node-toolbox/master/scripts/rc.local > /dev/null 2>&1
+	chmod +x /etc/rc.local
 	#Permissions reset
 	chmod -R a=r,a+X,u+w /home/icon
 	chown icon:icon -R /home/icon
@@ -124,8 +127,12 @@ installCitizenNodeAdvanced(){
 	installNodeDependencies
 	#Create directory for citizen node.
 	mkdir -p CTZ_INSTALL_DIR
+	ln -s CTZ_INSTALL_DIR /home/icon
 	##Download docker-compose.yml.
 	curl -o CTZ_INSTALL_DIR/docker-compose.yml https://raw.githubusercontent.com/rhizomeicx/rhizome-node-toolbox/master/citizen/default/docker-compose.yml > /dev/null 2>&1
+	#Download rc.local.
+	curl -o /etc/rc.local https://raw.githubusercontent.com/rhizomeicx/rhizome-node-toolbox/master/scripts/rc.local > /dev/null 2>&1
+	chmod +x /etc/rc.local
 	#Permissions reset
 	chmod -R a=r,a+X,u+w /home/icon
 	chown icon:icon -R /home/icon
@@ -169,6 +176,9 @@ installPRepNodeEasy(){
 	mkdir -p /home/icon/prep
 	##Download docker-compose.yml.
 	curl -o /home/icon/prep/docker-compose.yml https://raw.githubusercontent.com/rhizomeicx/rhizome-node-toolbox/master/prep/docker-compose.yml > /dev/null 2>&1
+	#Download rc.local.
+	curl -o /etc/rc.local https://raw.githubusercontent.com/rhizomeicx/rhizome-node-toolbox/master/scripts/rc.local > /dev/null 2>&1
+	chmod +x /etc/rc.local
 	#Permissions reset
 	chmod -R a=r,a+X,u+w /home/icon
 	chown icon:icon -R /home/icon
@@ -195,7 +205,12 @@ installPRepNodeAdvanced(){
 	installNodeDependencies
 	#Create directory for citizen node.
 	mkdir -p PREP_INSTALL_DIR
-	##Download docker-compose.yml.
+	#Make symlink to home folder of "icon" user.
+	ln -s PREP_INSTALL_DIR /home/icon
+	#Download rc.local.
+	curl -o /etc/rc.local https://raw.githubusercontent.com/rhizomeicx/rhizome-node-toolbox/master/scripts/rc.local > /dev/null 2>&1
+	chmod +x /etc/rc.local
+	#Download docker-compose.yml.
 	curl -o /home/icon/prep/docker-compose.yml https://raw.githubusercontent.com/rhizomeicx/rhizome-node-toolbox/master/prep/docker-compose.yml > /dev/null 2>&1
 	chmod -R a=r,a+X,u+w /home/icon
 	chown icon:icon -R /home/icon
@@ -269,9 +284,6 @@ do
             installHAProxy;
             installPRepNode;
             break;;
-        #"Update Node Image")
-        #    echo "you chose choice $REPLY which is $opt"
-        #    ;;
         "Quit")
             break
             ;;
