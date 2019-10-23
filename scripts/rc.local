@@ -14,13 +14,13 @@
 sleep 5
 
 #Start citizen node if docker-compose.yml is detected.
-if [ -f /home/rhizome/citizen/docker-compose.yml ]; then
-	cd /home/rhizome/citizen && docker-compose up -d
+if [ -f /home/icon/citizen/docker-compose.yml ]; then
+	cd /home/icon/citizen && docker-compose up -d
 fi
 
 #Start P-Rep node if docker-compose.yml is detected.
-if [ -f /home/rhizome/prep/docker-compose.yml ]; then
-	cd /home/rhizome/prep && docker-compose up -d
+if [ -f /home/icon/prep/docker-compose.yml ]; then
+	cd /home/icon/prep && docker-compose up -d
 fi
 
 exit 0
