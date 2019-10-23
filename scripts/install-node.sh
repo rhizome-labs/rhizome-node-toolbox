@@ -162,7 +162,8 @@ installPRepNode(){
 				installPRepNodeEasy;
 				break;;
 	        Advanced )
-				echo "You chose advanced mode";
+				createICONUser;
+				installPRepNodeAdvanced;
 				break;;
 	    esac
 	done
