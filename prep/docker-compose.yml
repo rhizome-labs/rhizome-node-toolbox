@@ -1,7 +1,7 @@
 version: '3'
 services:
    prep:
-      image: iconloop/prep-node:1909111919x74b59c
+      image: iconloop/prep-node:1910211829xc2286d
       restart: always
       container_name: "prep-node"
       environment:
