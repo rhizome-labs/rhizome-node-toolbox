@@ -251,7 +251,7 @@ rhizomeToolbox() {
 echo
 echo -e "${YELLOW}RHIZOME Toolbox v1.0${NC}"
 echo
-PS3=$'\n''RHIZOME Toolbox v1.0> '
+PS3=$'\n''RHIZOME Toolbox v0.2> '
 options=("Format and Mount Disk" "Install Citizen Node" "Install P-Rep Node" "Update Node Image" "Quit")
 select opt in "${options[@]}"
 do
@@ -269,9 +269,9 @@ do
             installHAProxy;
             installPRepNode;
             break;;
-        "Update Node Image")
-            echo "you chose choice $REPLY which is $opt"
-            ;;
+        #"Update Node Image")
+        #    echo "you chose choice $REPLY which is $opt"
+        #    ;;
         "Quit")
             break
             ;;
