@@ -1,7 +1,7 @@
 version: '3'
 services:
    citizen:
-      image: 'iconloop/citizen-node:1908271151xd2b7a4'
+      image: 'iconloop/citizen-node:1909181817xee0cef'
       restart: always
       environment:
          LOG_OUTPUT_TYPE: "file"
