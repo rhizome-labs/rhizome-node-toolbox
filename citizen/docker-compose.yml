@@ -1,16 +1,24 @@
-version: '3'
+version: "3"
 services:
-   citizen:
-      image: 'iconloop/citizen-node:1909181817xee0cef'
-      restart: always
-      environment:
-         LOG_OUTPUT_TYPE: "file"
-         LOOPCHAIN_LOG_LEVEL: "DEBUG"
-         FASTEST_START: "yes"     # Restore from lastest snapshot DB
-
-      volumes:
-         - ./data:/data  # mount a data volumes
-         - ./keys:/citizen_pack/keys  # Automatically generate cert key files here
-
-      ports:
+  prep-node:
+     image: "iconloop/prep-node"
+     container_name: "prep-mainnet"
+     restart: "on-failure"
+     environment:
+        NETWORK_ENV: "mainnet"
+        LOG_OUTPUT_TYPE: "file"
+        SWITCH_BH_VERSION3: "10324749"
+        CERT_PATH: "/cert"
+        LOOPCHAIN_LOG_LEVEL: "DEBUG"
+        ICON_LOG_LEVEL: "DEBUG"
+        FASTEST_START: "yes" # Restore from lastest snapshot DB
+        PRIVATE_KEY_FILENAME: "" # only file name
+        PRIVATE_PASSWORD: ""
+     cap_add:
+        - SYS_TIME
+     volumes:
+        - ./data:/data # mount a data volumes
+        - ./cert:/cert # Automatically generate cert key files here
+     ports:
          - "127.0.0.2:9100:9000"
+         - "127.0.0.2:7200:7100"
