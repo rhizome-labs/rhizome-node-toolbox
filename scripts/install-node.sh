@@ -87,7 +87,8 @@ installCitizenNode(){
 				installCitizenNodeEasy;
 				break;;
 	        Advanced )
-				echo "You chose advanced mode";
+				createICONUser;
+				installCitizenNodeAdvanced;
 				break;;
 	    esac
 	done
