@@ -9,8 +9,8 @@ services:
         LOG_OUTPUT_TYPE: "file"
         SWITCH_BH_VERSION3: "10324749"
         CERT_PATH: "/cert"
-        LOOPCHAIN_LOG_LEVEL: "DEBUG"
-        ICON_LOG_LEVEL: "DEBUG"
+        LOOPCHAIN_LOG_LEVEL: "ERROR"
+        ICON_LOG_LEVEL: "ERROR"
         FASTEST_START: "yes" # Restore from lastest snapshot DB
         PRIVATE_KEY_FILENAME: "" # only file name
         PRIVATE_PASSWORD: ""
