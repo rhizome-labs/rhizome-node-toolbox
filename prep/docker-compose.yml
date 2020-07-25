@@ -1,21 +1,22 @@
 version: "3"
 services:
   prep-node:
-     image: "iconloop/prep-node:1910211829xc2286d"
-     container_name: "prep-mainnet"    
-     restart: "always"
+     image: "iconloop/prep-node"
+     container_name: "prep-mainnet"
+     restart: "on-failure"
      environment:
         NETWORK_ENV: "mainnet"
         LOG_OUTPUT_TYPE: "file"
         SWITCH_BH_VERSION3: "10324749"
         CERT_PATH: "/cert"
         LOOPCHAIN_LOG_LEVEL: "DEBUG"
-        ICON_LOG_LEVEL: "DEBUG"        
+        ICON_LOG_LEVEL: "DEBUG"
         FASTEST_START: "yes" # Restore from lastest snapshot DB
-        PRIVATE_KEY_FILENAME: "keystore" # only file name
+        PRIVATE_KEY_FILENAME: "" # only file name
         PRIVATE_PASSWORD: ""
+        ENDPOINT_URL: "https://ctz-mainnet.rhizome.dev"
      cap_add:
-        - SYS_TIME      
+        - SYS_TIME
      volumes:
         - ./data:/data # mount a data volumes
         - ./cert:/cert # Automatically generate cert key files here
