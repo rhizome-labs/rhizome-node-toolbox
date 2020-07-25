@@ -12,8 +12,8 @@ services:
         LOOPCHAIN_LOG_LEVEL: "DEBUG"
         ICON_LOG_LEVEL: "DEBUG"
         FASTEST_START: "yes" # Restore from lastest snapshot DB
-        PRIVATE_KEY_FILENAME: "keystore" # only file name
-        PRIVATE_PASSWORD: "rhizome123~~"
+        PRIVATE_KEY_FILENAME: "" # only file name
+        PRIVATE_PASSWORD: ""
         ENDPOINT_URL: "https://ctz-mainnet.rhizome.dev"
      cap_add:
         - SYS_TIME
